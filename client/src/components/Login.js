@@ -15,6 +15,11 @@ export default class Login extends Component {
    
     handleLogin = e =>{
         e.preventDefault() //페이징 이동 없게
+
+
+
+
+        
         const login_info={
             method:"POST",
             body: JSON.stringify(this.state),
