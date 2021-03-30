@@ -26,7 +26,7 @@ while True:
 
         minNeighbors=5,
 
-        minSize=(100, 100)
+        minSize=(104, 100)
 
     )
 
