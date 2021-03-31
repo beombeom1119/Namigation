@@ -24,11 +24,9 @@ const connection =mysql.createConnection({
 	database : conf.database
 });
 connection.connect();
-
 const multer = require('multer');
 const { query, request } = require('express');
 const upload = multer({dest:'./upload'})
-
 
 app.get('/api/result/:userNum',(req, res)=> {
 	let sql = "SELECT * FROM m_Tcheck WHERE userNum ="+req.body.userNum ;
@@ -44,7 +42,6 @@ app.get('/api/result/:userNum',(req, res)=> {
 	}
 );
 
-
 app.get('/api/result',(req, res)=> {
 	let sql = "SELECT * FROM m_Tcheck WHERE userNum =4566";
 	let userNum = req.body.userNum;
@@ -55,17 +52,11 @@ app.get('/api/result',(req, res)=> {
 				console.log("!!!!!!")
 				console.log(err)
 				// console.log(rows)
-			}) 
-	}
-);
-
+			})});
 
 app.get('/hello', function(req, res, next) {
 	res.render('hello.ejs');
   });
-
-
-
 
 app.post('/api/result',(req, res)=> {
 	let sql = "SELECT * FROM m_Tcheck WHERE userNum = ? ";
@@ -77,11 +68,7 @@ app.post('/api/result',(req, res)=> {
 				console.log("!!!!!!"+req.body.userNum)
 				console.log(err)
 				// console.log(rows)
-			}) 
-	}
-);
-
-
+			})});
 
 app.get('/api/haha/:userNum',(req, res)=> {
     connection.query(
@@ -92,16 +79,7 @@ app.get('/api/haha/:userNum',(req, res)=> {
 			res.send(rows);		
 			} catch (error) {
 			console.log("!!!!!!오류입니다.")	
-			}
-		
-		}
-	);
-}
-);
-
-
-
-
+			} } ); });
 
 app.get('/api/login',(req, res)=> {
 	let sql = "SELECT userNum FROM m_Tcheck WHERE userNum = ? ";
@@ -113,13 +91,7 @@ app.get('/api/login',(req, res)=> {
 				console.log("!!!!!!"+req.body.userNum)
 				console.log(err)
 				// console.log(rows)
-			}) 
-	}
-);
-
-
-
-
+			})});
 
 	app.post('/api/login',(req, res)=> {
 			let sql = "SELECT * FROM  m_user INNER JOIN m_Tcheck WHERE m_user.userNum=? && m_Tcheck.userNum = ? ";
@@ -132,27 +104,19 @@ app.get('/api/login',(req, res)=> {
 						res.send(rows);
 						// console.log(JSON.stringify(rows))
 						// console.log(rows)
-						
 						} catch{
 						res.json(
 							{userNum:"!!!"}
 						)
-						}
-						
-					}) 
-			}
-		);
-
-	
-
+						}	
+					})});
 
 	app.use('/image',express.static('./upload'));
 	// app.post('/api/predict'/*,upload.single('image')*/,(req,res)=> 
 	app.post('/api/predict',upload.single('image'),(req,res)=> 
 	{
-		console.log("도대체 뭐야 아오 짜증나");
+		
 		console.log(request.body)
-		console.log("도대체 뭐야 아오 짜증나");
 		let sql = "insert into m_Tcheck values (null,?,?,?,NOW())";
 		// let image ='/image/' + req.file.filename;	
 		// let userNum =req.body.userNum;
@@ -167,14 +131,8 @@ app.get('/api/login',(req, res)=> {
 			(err,rows,fields)=> {
 				res.send(rows);
 				console.log(err)
-				console.log("뭐야 진짜")
 				console.log(rows)
 			})
-	}
-	
-	)
+		})
 
-
-
-
-app.listen(port, ()=> console.log('잘 돌아갑니다!!!.'))
+app.listen(port, ()=> console.log(`${port}포트 확인`))

@@ -57,8 +57,8 @@ export default function WelcomePage({GetTeachValue}) {
       result2 : prediction[1].probability.toFixed(2),
     })
     console.log(state.result1+state.result2+"여기를 보라")
-    const SetTeachValue = () => {
-      GetTeachValue(prediction[0].probability.toFixed(2),prediction[1].probability.toFixed(2),)
+    function SetTeachValue(){
+      GetTeachValue(prediction[0].probability.toFixed(2),prediction[1].probability.toFixed(2))
     }
     SetTeachValue()
     if (prediction[0].probability.toFixed(2) >= 0.7) {

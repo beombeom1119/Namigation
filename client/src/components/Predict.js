@@ -30,11 +30,9 @@ stateRefresh=() => {
             completed:0
         }
     );
-
   
     this.callApi().then(res=> this.setState({predict:res})).catch(err=> console.log(err))
 }
-
 
 handleFormPredict=(e) =>{
     e.preventDefault()
@@ -61,16 +59,8 @@ handleValueChange=(e) => {
     console.log("checkpoint1")
    let nextState={};
    nextState[e.target.name] = e.target.value;
-   this.setState(nextState)
-
-
-   
-   
+   this.setState(nextState)  
 }
-
-
-  
-
 
     addpredict= () => {
         const url ='/api/predict';
@@ -84,9 +74,7 @@ handleValueChange=(e) => {
             }
         }
         return post(url,formData,config);
-        
-    }
-
+        }
 
     addresult= () => {
         const url ='/api/result';
@@ -103,28 +91,21 @@ handleValueChange=(e) => {
         
     }
 
-
-
-
-    
-
-    
-
+    GetTeachValue = (data1,data2) => {
+        this.setState({
+            depth : data1,
+            distance : data2,
+        })}
 
     render() {
-        
         return (
-       
             <div className="login-page">
-                
                 {
-                    
-                    this.props.isLogin===true ? (       
-                        
+                    this.props.isLogin===true ? (              
                     <div className="form">
                         <h1>{this.props.isLogin}</h1>
                         <h1>{this.props.name}님이 로그인 하셨습니다~</h1>
-                        <WelcomePage/>
+                        <WelcomePage GetTeachValue= {this.GetTeachValue}/>
                         <form onSubmit={this.handleFormPredict}>
                         <input type="text" name ="depth"value={this.state.depth} onChange={this.handleValueChange} placeholder="깊이"></input>
                         <input type="text" name ="distance" value={this.state.distance} onChange={this.handleValueChange} placeholder="너비"></input>
@@ -134,13 +115,8 @@ handleValueChange=(e) => {
         </div>) : 
         (<div>로그인 해주세요~</div>)
                 }
-
-                
                 <Table name={this.props.name} userNum ={this.state.userNum}> name={this.props.name}</Table>
-                
             </div>
-           
-            
         ) 
     }
 }

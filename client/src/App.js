@@ -1,12 +1,7 @@
 import React,{Component} from 'react';
 import './App.css';
-
 import {withStyles} from '@material-ui/core/styles';
-import { BrowserRouter, Route, Link } from "react-router-dom";
 import Login from './components/Login';
-import Predict from './components/Predict';
-
-
 
 const styles = theme => ({
   root : {
@@ -83,7 +78,10 @@ class App extends Component{
   {
     const {classes} =this.props;
     return(
+      <>
       <Login></Login>
+     
+      </>
     );
   }
 }
