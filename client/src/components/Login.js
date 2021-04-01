@@ -4,6 +4,9 @@ import '../App.css';
 import WelcomePage from './WelcomePage-motion.jsx';
 import Dictaphone from './Dictaphone';
 import { data } from 'autoprefixer';
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
+
+
 
 
 export default class Login extends Component {
@@ -26,7 +29,6 @@ export default class Login extends Component {
             {
                 userNum : data1,            
             } );
-        console.log(this.state)
     }
    
     handleLogin = e =>{
@@ -71,13 +73,14 @@ export default class Login extends Component {
     render() {
         return (
             <div className="login-page">
+            
                 <Dictaphone GetVoiceValue= {this.GetVoiceValue}/>
                 {
                     this.state.isLogin ===false ?  (  
                         <div className="form">
                         <form className="login-form" onSubmit={this.handleLogin}>
                         <div >유저키 입력!</div>
-                        <input  type="password" value={this.state.userNum} onChange={this.handleuserNum}></input><br></br>
+                        <input  type="text" value={this.state.userNum||""} onChange={this.handleuserNum.bind}></input><br></br>
                         <button type="submit">로그인</button>
                         </form>
                     </div>) : (<div><Predict name={this.state.name} userNum={this.state.userNum} isLogin={this.state.isLogin}></Predict></div>)

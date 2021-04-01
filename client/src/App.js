@@ -80,6 +80,7 @@ class App extends Component{
     return(
       <>
       <Login></Login>
+      {/* <Login2></Login2> */}
      
       </>
     );

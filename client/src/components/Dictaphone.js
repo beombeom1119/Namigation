@@ -5,27 +5,58 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 
 const Dictaphone = ({GetVoiceValue}) => {
   const { transcript, resetTranscript } = useSpeechRecognition()
-  const [usernum, setusernum] = useState(1234)
-  const [transcript2, settransrcipt2] = useState("hello")
+  const [userNum, setuserNum] = useState("1234")
   useEffect(() => {
-    SetVoiceValue()
-    SpeechRecognition.startListening()
+    SpeechRecognition.startListening()  
+      // setTimeout(() => {
+    console.log("-------------useEffect------------")
+  console.log(userNum.userNum)
+  // handleValueChange()
+  // SetVoiceValue()
+    // }, 7000)
+
+     setTimeout(() => {
+        handleValueChange()
+        handleValueChange()
+          }, 7000)
   }, [])
-  
-const handleValueChange= (e) => {
-  
-  setusernum(
-    {
-      [e.target.name.usernum] : e.target.value,
-    }
-  )
-  // console.log(transcript)
+
+
+
  
+  
+
+ function handleValueChange(e){
+   setTimeout(7000)
+   SetVoiceValue()
+   setuserNum(
+    {
+      // transcript : e.target.value,
+      userNum : transcript,
+
+    }
+    
+  )
+  console.log("-------------handlevalue------------")
+    console.log(userNum.userNum)
+  console.log(transcript)
+  SetVoiceValue()
+
 }
 
 function SetVoiceValue(){
+  // setTimeout(() => {
+  //   setuserNum(
+  //     {
+  //       // transcript : e.target.value,
+  //       userNum : transcript,
+  
+  //     })  
+  //   }, 2000)
   console.log("보이스 값 추출")
-  GetVoiceValue(transcript)
+  GetVoiceValue(userNum.userNum)
+  console.log("-------------setvoice------------")
+    console.log(userNum.userNum)  
 }
 
 
@@ -40,8 +71,9 @@ function SetVoiceValue(){
       <button onClick={SpeechRecognition.stopListening}>Stop</button>
       <button onClick={resetTranscript}>Reset</button> */}
       {/* <input type ="text" name={usernum} value={transcript} onChange={handleValueChange.bind(this)}></input> */}
-      <input type ="hidden" name={usernum} value={transcript} onChange={handleValueChange.bind(this)}></input>
+      <input type ="text" value={transcript||""} /*onChange={handleValueChange.bind(this)}*/ onChange={handleValueChange} ></input>
       <p>{transcript}</p>
+      {/* <p>사{userNum.userNum}이</p> */}
     </div>
   )
 }
