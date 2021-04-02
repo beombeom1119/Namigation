@@ -104,7 +104,7 @@ handleValueChange=(e) => {
                     this.props.isLogin===true ? (              
                     <div className="form">
                         <h1>{this.props.isLogin}</h1>
-                        <h1>{this.props.name}님이 로그인 하셨습니다~</h1>
+                        <h3>{this.props.name}님이 로그인 하셨습니다~</h3>
                         <WelcomePage GetTeachValue= {this.GetTeachValue}/>
                         <form onSubmit={this.handleFormPredict}>
                         <input type="text" name ="depth"value={this.state.depth} onChange={this.handleValueChange} placeholder="깊이"></input>

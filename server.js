@@ -54,9 +54,6 @@ app.get('/api/result',(req, res)=> {
 				// console.log(rows)
 			})});
 
-app.get('/hello', function(req, res, next) {
-	res.render('hello.ejs');
-  });
 
 app.post('/api/result',(req, res)=> {
 	let sql = "SELECT * FROM m_Tcheck WHERE userNum = ? ";

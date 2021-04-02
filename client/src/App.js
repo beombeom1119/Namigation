@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import './App.css';
 import {withStyles} from '@material-ui/core/styles';
 import Login from './components/Login';
+import Dictaphone from './components/Dictaphone';
 
 const styles = theme => ({
   root : {
@@ -79,6 +80,8 @@ class App extends Component{
     const {classes} =this.props;
     return(
       <>
+      {/* <Dictaphone/> */}
+      {/* <JavaScript></JavaScript> */}
       <Login></Login>
       {/* <Login2></Login2> */}
      

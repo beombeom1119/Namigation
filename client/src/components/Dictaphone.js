@@ -16,8 +16,8 @@ const Dictaphone = ({GetVoiceValue}) => {
     // }, 7000)
 
      setTimeout(() => {
-        handleValueChange()
-        handleValueChange()
+        // handleValueChange()
+        // handleValueChange()
           }, 7000)
   }, [])
 

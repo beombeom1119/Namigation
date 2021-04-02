@@ -6,9 +6,6 @@ import Dictaphone from './Dictaphone';
 import { data } from 'autoprefixer';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
 
-
-
-
 export default class Login extends Component {
     constructor(props){   // 초기 설정
         super(props);
@@ -20,7 +17,15 @@ export default class Login extends Component {
         this.GetVoiceValue = this.GetVoiceValue.bind(this);
     }
 
+componentDidMount(){
+    setTimeout(() => {
+        document.getElementById("btnLogin").click()     
+    }, 10000);
 
+    // setTimeout(() => {
+    //     document.getElementById("btnLogin").click()     
+    // }, 14000);
+}
     
 
     GetVoiceValue(data1) {
@@ -33,6 +38,7 @@ export default class Login extends Component {
    
     handleLogin = e =>{
         e.preventDefault() //페이징 이동 없게
+        console.log("버튼이 누렸어요")
         const login_info={
             method:"POST",
             body: JSON.stringify(this.state),
@@ -54,8 +60,10 @@ export default class Login extends Component {
                         name:json[0].name,
                         isLogin:true
                     } );
-                    var confirm_test = window.confirm(this.state.name+"님이 맞으신가요?");
+                    // var confirm_test = window.confirm(this.state.name+"님이 맞으신가요?");
                     console.log(this.state.isLogin)
+
+
             }
             else {
                 alert("아이디 혹은 비밀번호를 확인하세요");
@@ -73,7 +81,6 @@ export default class Login extends Component {
     render() {
         return (
             <div className="login-page">
-            
                 <Dictaphone GetVoiceValue= {this.GetVoiceValue}/>
                 {
                     this.state.isLogin ===false ?  (  
@@ -81,7 +88,7 @@ export default class Login extends Component {
                         <form className="login-form" onSubmit={this.handleLogin}>
                         <div >유저키 입력!</div>
                         <input  type="text" value={this.state.userNum||""} onChange={this.handleuserNum.bind}></input><br></br>
-                        <button type="submit">로그인</button>
+                        <button id="btnLogin" type="submit">로그인</button>
                         </form>
                     </div>) : (<div><Predict name={this.state.name} userNum={this.state.userNum} isLogin={this.state.isLogin}></Predict></div>)
                 }
