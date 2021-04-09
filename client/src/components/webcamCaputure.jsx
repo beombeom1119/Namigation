@@ -12,6 +12,7 @@ export default function WelcomePage() {
   let model;
   let webcam;
   let labelContainer;
+  
   let maxPredictions;
 
   useEffect(() => {
