@@ -1,24 +1,50 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 
-.login-page {
+
+#VoiceInput{
+  font-family: 'Nanum Gothic', sans-serif;
+  background: #b8b5ff;
+  width: 1px;
+  height: 1px;
+  
+  
+}
+#FirstClass{
+color : #140ec7;
+font-weight: 700;
+}
+
+#SecondClass{
+color : #d31010;
+font-weight: 700;
+}
+
+.LoginPage {
+  font-family: 'Nanum Gothic', sans-serif;
   width: 360px;
   padding: 8% 0 0;
   margin: auto;
 }
 .form {
+  color: #000000;
+  font-size: large;
+  font-family: 'Nanum Gothic', sans-serif;
   position: relative;
   z-index: 1;
-  background: #FFFFFF;
+  /* background: #7868e6; */
   max-width: 360px;
   margin: 0 auto 100px;
-  padding: 45px;
+  padding: 5px;
   text-align: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  padding-left: 40px;
+  padding-right: 40px;
+  /* box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24); */
 }
 .form input {
-  font-family: "Roboto", sans-serif;
+  
+  font-family: 'Nanum Gothic', sans-serif;
   outline: 0;
-  background: #f2f2f2;
+  background: #b8b5ff;
   width: 100%;
   border: 0;
   margin: 0 0 15px;
@@ -27,10 +53,10 @@
   font-size: 14px;
 }
 .form button {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   text-transform: uppercase;
   outline: 0;
-  background: #000800;
+  background: #310a70;
   width: 100%;
   border: 0;
   padding: 15px;
@@ -41,7 +67,7 @@
   cursor: pointer;
 }
 .form button:hover,.form button:active,.form button:focus {
-  background: #000800;
+  background: #310a70;
 }
 .form .message {
   margin: 15px 0 0;
@@ -49,7 +75,7 @@
   font-size: 12px;
 }
 .form .message a {
-  color: #000800;
+  color: #310a70;
   text-decoration: none;
 }
 .form .register-form {
@@ -89,11 +115,11 @@
   color: #EF3B3A;
 }
 body {
-  background: #76b852; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-  background: -moz-linear-gradient(right, #76b852, #8DC26F);
-  background: -o-linear-gradient(right, #76b852, #8DC26F);
-  background: linear-gradient(to left, #76b852, #8DC26F);
+  background: #7868e6; /* fallback for old browsers */
+  background: -webkit-linear-gradient(right, #7868e6, #b8b5ff);
+  background: -moz-linear-gradient(right, #7868e6, #b8b5ff);
+  background: -o-linear-gradient(right, #7868e6, #b8b5ff);
+  background: linear-gradient(to left, #7868e6, #b8b5ff);
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;      

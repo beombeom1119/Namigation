@@ -3,7 +3,7 @@ import ResultTable from './TableBody'
 import { get } from 'axios';
 import '../App.css';
 
-export default class Table extends Component {
+export default class Table1 extends Component {
     constructor(props){
         super(props);
         this.state={

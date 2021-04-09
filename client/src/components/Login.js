@@ -16,12 +16,17 @@ export default class Login extends Component {
         }
         this.GetVoiceValue = this.GetVoiceValue.bind(this);
     }
-
+ 
 componentDidMount(){
-    setTimeout(() => {
-        document.getElementById("btnLogin").click()     
-    }, 10000);
-
+    try {
+        setTimeout(() => {
+            document.getElementById("btnLogin").click()     
+        }, 10000);
+           
+    } catch (error) {
+        
+    }
+    
     // setTimeout(() => {
     //     document.getElementById("btnLogin").click()     
     // }, 14000);
@@ -80,15 +85,15 @@ componentDidMount(){
 
     render() {
         return (
-            <div className="login-page">
+            <div className="LoginPage"> 
                 <Dictaphone GetVoiceValue= {this.GetVoiceValue}/>
                 {
                     this.state.isLogin ===false ?  (  
                         <div className="form">
-                        <form className="login-form" onSubmit={this.handleLogin}>
-                        <div >유저키 입력!</div>
-                        <input  type="text" value={this.state.userNum||""} onChange={this.handleuserNum.bind}></input><br></br>
-                        <button id="btnLogin" type="submit">로그인</button>
+                        <form className="LoginForm" onSubmit={this.handleLogin}>
+                        <div >유저키 입력!</div><br></br>
+                        <input  type="text" value={this.state.userNum||""} onChange={this.handleuserNum.bind(this)}></input><br></br>
+                        <button class="btn btn-primary" id="btnLogin" type="submit">로그인</button>
                         </form>
                     </div>) : (<div><Predict name={this.state.name} userNum={this.state.userNum} isLogin={this.state.isLogin}></Predict></div>)
                 }

@@ -71,7 +71,7 @@ function SetVoiceValue(){
       <button onClick={SpeechRecognition.stopListening}>Stop</button>
       <button onClick={resetTranscript}>Reset</button> */}
       {/* <input type ="text" name={usernum} value={transcript} onChange={handleValueChange.bind(this)}></input> */}
-      <input type ="text" value={transcript||""} /*onChange={handleValueChange.bind(this)}*/ onChange={handleValueChange} ></input>
+      <input id="VoiceInput" type ="text" value={transcript||""} /*onChange={handleValueChange.bind(this)}*/ onChange={handleValueChange} ></input>
       <p>{transcript}</p>
       {/* <p>사{userNum.userNum}이</p> */}
     </div>

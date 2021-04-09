@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { post } from 'axios';
-import Table from './Table'
+import Table from './Table1'
 import '../App.css';
 import WelcomePage from './WelcomePage-motion';
 
@@ -99,7 +99,7 @@ handleValueChange=(e) => {
 
     render() {
         return (
-            <div className="login-page">
+            <div className="PredictPage">
                 {
                     this.props.isLogin===true ? (              
                     <div className="form">
@@ -107,11 +107,14 @@ handleValueChange=(e) => {
                         <h3>{this.props.name}님이 로그인 하셨습니다~</h3>
                         <WelcomePage GetTeachValue= {this.GetTeachValue}/>
                         <form onSubmit={this.handleFormPredict}>
-                        <input type="text" name ="depth"value={this.state.depth} onChange={this.handleValueChange} placeholder="깊이"></input>
-                        <input type="text" name ="distance" value={this.state.distance} onChange={this.handleValueChange} placeholder="너비"></input>
+                        <input type="text" id="FirstClass" name ="depth"value={this.state.depth} onChange={this.handleValueChange} placeholder="깊이"></input>
+                        <input type="text" id="SecondClass" name ="distance" value={this.state.distance} onChange={this.handleValueChange} placeholder="너비"></input>
                         <input type="hidden" value={this.props.name} ></input>
                         <button type="submit">제출</button>
                         </form>
+                        {/* <button type="text" onClick={function(){
+                            this.props.isLogin = false
+                        }}>이전으로</button>  이거 해결하기*/} 
         </div>) : 
         (<div>로그인 해주세요~</div>)
                 }

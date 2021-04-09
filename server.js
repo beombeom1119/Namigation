@@ -85,9 +85,8 @@ app.get('/api/login',(req, res)=> {
 		connection.query(sql, params,
 			(err,rows,fields)=> {
 				res.send(rows);
-				console.log("!!!!!!"+req.body.userNum)
+				console.log(req.body)
 				console.log(err)
-				// console.log(rows)
 			})});
 
 	app.post('/api/login',(req, res)=> {
@@ -99,8 +98,6 @@ app.get('/api/login',(req, res)=> {
 					(err,rows,fields)=> {
 						try {
 						res.send(rows);
-						// console.log(JSON.stringify(rows))
-						// console.log(rows)
 						} catch{
 						res.json(
 							{userNum:"!!!"}

@@ -2,7 +2,9 @@ import React,{Component} from 'react';
 import './App.css';
 import {withStyles} from '@material-ui/core/styles';
 import Login from './components/Login';
-import Dictaphone from './components/Dictaphone';
+import 'bootstrap/dist/css/bootstrap.css'
+import { BrowserRouter, Route, Switch, Link  } from 'react-router-dom';
+import Table1 from './components/Table1';
 
 const styles = theme => ({
   root : {
@@ -80,11 +82,21 @@ class App extends Component{
     const {classes} =this.props;
     return(
       <>
-      {/* <Dictaphone/> */}
-      {/* <JavaScript></JavaScript> */}
-      <Login></Login>
-      {/* <Login2></Login2> */}
+     <div>
+       홈
+     </div>
+      {/* <Login></Login> */}
      
+      <BrowserRouter>
+    <Switch>
+    <Route exact path="/" component={Login}/>
+     <Route path="/table" component={Table1}/>
+    </Switch>
+  </BrowserRouter>
+
+  <div>
+       밑
+     </div>
       </>
     );
   }
