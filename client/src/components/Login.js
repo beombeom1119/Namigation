@@ -5,6 +5,9 @@ import WelcomePage from './WelcomePage-motion.jsx';
 import Dictaphone from './Dictaphone';
 import { data } from 'autoprefixer';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
+import Header from './Header';
+import Footer from './Footer';
+import Left from './Left'
 
 export default class Login extends Component {
     constructor(props){   // 초기 설정
@@ -31,7 +34,9 @@ componentDidMount(){
     //     document.getElementById("btnLogin").click()     
     // }, 14000);
 }
-    
+
+
+
 
     GetVoiceValue(data1) {
         console.log("가져온 값"+data1);
@@ -83,22 +88,38 @@ componentDidMount(){
             
             })}
 
+            // haha = e =>{
+            //  window.confirm("You are not Hair Loss")   
+            // }
+
+
+
     render() {
         return (
+            <>
+            <Header/>
+            <Left></Left>
+            {/* HEADER */}
+            <div className="Content">
             <div className="LoginPage"> 
                 <Dictaphone GetVoiceValue= {this.GetVoiceValue}/>
                 {
                     this.state.isLogin ===false ?  (  
                         <div className="form">
                         <form className="LoginForm" onSubmit={this.handleLogin}>
-                        <div >유저키 입력!</div><br></br>
+                        <div>User KEY</div><br></br>
                         <input  type="text" value={this.state.userNum||""} onChange={this.handleuserNum.bind(this)}></input><br></br>
                         <button class="btn btn-primary" id="btnLogin" type="submit">로그인</button>
+                        {/* <button class="btn btn-primary" id="btnLogin2" onClick={this.haha()}>누르기</button> */}
                         </form>
                     </div>) : (<div><Predict name={this.state.name} userNum={this.state.userNum} isLogin={this.state.isLogin}></Predict></div>)
                 }
               
             </div>
+                <Footer/>
+                {/* Footer */}
+                </div>
+            </>
         )
     }
     }

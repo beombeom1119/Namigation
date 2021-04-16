@@ -83,7 +83,6 @@ class App extends Component{
     return(
       <>
      <div>
-       홈
      </div>
       {/* <Login></Login> */}
      
@@ -93,9 +92,7 @@ class App extends Component{
      <Route path="/table" component={Table1}/>
     </Switch>
   </BrowserRouter>
-
   <div>
-       밑
      </div>
       </>
     );

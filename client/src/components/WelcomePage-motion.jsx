@@ -8,7 +8,10 @@ export default function WelcomePage({GetTeachValue}) {
     result2 : "2번",
   })
 
-  const URL = "https://teachablemachine.withgoogle.com/models/pg97lEWuB/"
+  // const URL = "https://teachablemachine.withgoogle.com/models/pg97lEWuB/"  //원래
+  const URL = "https://teachablemachine.withgoogle.com/models/iscluPbtd/" //영어 과제
+
+  
   let model;
   let webcam;
   let labelContainer;

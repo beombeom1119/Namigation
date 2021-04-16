@@ -3,7 +3,7 @@
 
 #VoiceInput{
   font-family: 'Nanum Gothic', sans-serif;
-  background: #b8b5ff;
+  background: #FFFFFF;
   width: 1px;
   height: 1px;
   
@@ -44,7 +44,7 @@ font-weight: 700;
   
   font-family: 'Nanum Gothic', sans-serif;
   outline: 0;
-  background: #b8b5ff;
+  background: #bce2d0;
   width: 100%;
   border: 0;
   margin: 0 0 15px;
@@ -56,18 +56,18 @@ font-weight: 700;
   font-family: 'Nanum Gothic', sans-serif;
   text-transform: uppercase;
   outline: 0;
-  background: #310a70;
+  background: #7ab488;
   width: 100%;
   border: 0;
   padding: 15px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 14px;
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
 }
 .form button:hover,.form button:active,.form button:focus {
-  background: #310a70;
+  background: #FFFFFF;
 }
 .form .message {
   margin: 15px 0 0;
@@ -75,7 +75,7 @@ font-weight: 700;
   font-size: 12px;
 }
 .form .message a {
-  color: #310a70;
+  color: #FFFFFF;
   text-decoration: none;
 }
 .form .register-form {
@@ -115,13 +115,46 @@ font-weight: 700;
   color: #EF3B3A;
 }
 body {
-  background: #7868e6; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, #7868e6, #b8b5ff);
-  background: -moz-linear-gradient(right, #7868e6, #b8b5ff);
-  background: -o-linear-gradient(right, #7868e6, #b8b5ff);
-  background: linear-gradient(to left, #7868e6, #b8b5ff);
+  background: #FFFFFF; /* fallback for old browsers */
+  background: -webkit-linear-gradient(right, #FFFFFF, #FFFFFF);
+  background: -moz-linear-gradient(right, #FFFFFF, #FFFFFF);
+  background: -o-linear-gradient(right, #FFFFFF, #FFFFFF);
+  background: linear-gradient(to left, #FFFFFF, #FFFFFF);
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;      
+}
+
+
+
+.Content {
+  width: 940px;
+  margin-left: 300px;
+  padding: 20px;
+  border: 1px solid #bcbcbc;
+}
+.Header {
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #bcbcbc;
+}
+.Left {
+  width: 300px;
+  padding: 20px;
+  margin-bottom: 20px;
+  float: left;
+  border: 1px solid #bcbcbc;
+}
+#jb-sidebar {
+  width: 260px;
+  padding: 20px;
+  margin-bottom: 20px;
+  float: right;
+  border: 1px solid #bcbcbc;
+}
+.Footer {
+  clear: both;
+  padding: 20px;
+  border: 1px solid #bcbcbc;
 }
 

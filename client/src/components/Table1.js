@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import ResultTable from './TableBody'
 import { get } from 'axios';
 import '../App.css';
+import Header from './Header';
+import Left from './Left';
+import Footer from './Footer';
 
 export default class Table1 extends Component {
     constructor(props){
@@ -50,17 +53,24 @@ export default class Table1 extends Component {
       
     render() {
         return (
-            <div>
-             {this.state.userNum} {this.state.name}
-             <br></br>
-             <br></br><br></br><br></br><br></br><br></br><br></br>
-        <tablehead>
-          <tablecell>번호</tablecell>
-          <tablecell>유저넘버</tablecell>
-          <tablecell>깊이</tablecell>
-          <tablecell>길이</tablecell>
-          <tablecell>날짜</tablecell>
-        </tablehead>
+          <>
+          <Header></Header>
+          <Left></Left>
+            <div className="Content">
+            <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  
+</table>
+             
+           
+{this.state.userNum} {this.state.name}
         <tablebody>
         {this.state.result ? this.state.result.map(result=> {return (<ResultTable key = {result.id} id = {result.id} userNum = {result.userNum} depth={result.depth} distance={result.distance} date={result.date} >  </ResultTable>)
         }): (<div>zxczx</div>)
@@ -68,6 +78,8 @@ export default class Table1 extends Component {
         } </tablebody>
 
             </div>
+            <Footer></Footer>
+            </>
         )
     }
 }

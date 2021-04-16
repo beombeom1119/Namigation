@@ -1,19 +1,16 @@
 import React, { Component } from 'react'
-import TableRow from '@material-ui/core/TableRow'
-import TableCell from '@material-ui/core/TableCell'
-
 
 export default class TableBody extends Component {
     render() {
         return (
             <div>
-             <TableRow>
-            <TableCell> {this.props.id}</TableCell>
-            <TableCell>{this.props.userNum}</TableCell>
-            <TableCell>{this.props.depth}</TableCell>
-            <TableCell>{this.props.distance}</TableCell>
-            <TableCell>{this.props.date}</TableCell>
-        </TableRow>
+            <table class="table">
+            <th scope="row">{this.props.id}</th>
+            <td>{this.props.userNum}</td>
+            <td>{this.props.depth}</td>
+            <td>{this.props.distance}</td>
+            <td>{this.props.date}</td>
+            </table>
             </div>
         )
     }
