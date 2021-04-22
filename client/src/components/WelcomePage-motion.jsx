@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import * as tmImage from '@teachablemachine/image'
+import html2canvas from 'html2canvas';
+import $ from 'jquery';
+
 
 export default function WelcomePage({GetTeachValue}) {
   const [openVal, setOpenVal] = useState(false);
   const [state, setstate] = useState({
-    result1 : "1번",
-    result2 : "2번",
+    result1 : "High",
+    result2 : "Middle",
+    result3 : "Low",
+    result4 : "Good",
+    iswebcam : false,
   })
 
   // const URL = "https://teachablemachine.withgoogle.com/models/pg97lEWuB/"  //원래
-  const URL = "https://teachablemachine.withgoogle.com/models/iscluPbtd/" //영어 과제
+  const URL = "https://teachablemachine.withgoogle.com/models/durPR47Po/" //4개 분류
 
   
   let model;
@@ -19,12 +25,13 @@ export default function WelcomePage({GetTeachValue}) {
 
   useEffect(() => {
     init()
-   
+    
   }, [])
 
   async function init() {
     const modelURL = URL + "model.json";
     const metadataURL = URL + "metadata.json";
+    
 
     model = await tmImage.load(modelURL, metadataURL);
     maxPredictions = model.getTotalClasses();
@@ -34,7 +41,7 @@ export default function WelcomePage({GetTeachValue}) {
     await webcam.setup();
     await webcam.play();
     window.requestAnimationFrame(loop);
-
+    webcam.canvas.id="WebCam"
     document.getElementById("webcam-container").appendChild(webcam.canvas);
     labelContainer = document.getElementById("label-container");
     for (let i = 0; i < maxPredictions; i++) { 
@@ -52,12 +59,13 @@ export default function WelcomePage({GetTeachValue}) {
     
     const prediction = await model.predict(webcam.canvas);
     setstate({
-      result1 : prediction[0].probability.toFixed(2),
-      result2 : prediction[1].probability.toFixed(2),
+      high : prediction[0].probability.toFixed(2),
+      middle : prediction[1].probability.toFixed(2),
+      low : prediction[2].probability.toFixed(2),
+      good : prediction[3].probability.toFixed(2),
     })
-    console.log(state.result1+state.result2+"여기를 보라")
     function SetTeachValue(){
-      GetTeachValue(prediction[0].probability.toFixed(2),prediction[1].probability.toFixed(2))
+      GetTeachValue(prediction[0].probability.toFixed(2),prediction[1].probability.toFixed(2),prediction[2].probability.toFixed(2),prediction[3].probability.toFixed(2))
     }
     SetTeachValue()
     if (prediction[0].probability.toFixed(2) >= 0.7) {
@@ -67,9 +75,33 @@ export default function WelcomePage({GetTeachValue}) {
     }
     
   }
+
+//   function downImg(){
+//     html2canvas($("#WebCam")[0]).then(function(canvas){
+//         var myImage = canvas.toDataURL();
+//         downloadURI(myImage, "image\저장할 파일명.png")
+//         // setstate(
+//         //   {
+//         //     iswebcam : false,
+//         //   }) 
+//     });
+// }
+// function downloadURI(uri, name){
+//   var link = document.createElement("a")
+//   link.download = name;
+//   link.href = uri;
+//   document.body.appendChild(link);
+//   link.click();
+// }
+
+
+  // if(state.iswebcam==true){
+  //  downImg()
+  // }
   
 
   
+
 
 
 

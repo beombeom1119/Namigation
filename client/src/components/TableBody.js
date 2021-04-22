@@ -10,6 +10,8 @@ export default class TableBody extends Component {
             <td>{this.props.depth}</td>
             <td>{this.props.distance}</td>
             <td>{this.props.date}</td>
+            <td><img src="https://placeimg.com/64/64/summer" /></td>
+            {/* <td><img src=""></img></td> */}
             </table>
             </div>
         )

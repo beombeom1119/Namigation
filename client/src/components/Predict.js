@@ -3,6 +3,8 @@ import { post } from 'axios';
 import Table from './Table1'
 import '../App.css';
 import WelcomePage from './WelcomePage-motion';
+import html2canvas from 'html2canvas';
+import $ from 'jquery';
 
 export default class Predict extends Component {
     static defaultProps = {
@@ -13,8 +15,10 @@ export default class Predict extends Component {
     super(props);
     this.state={
         userNum: this.props.userNum,
-        depth : "",
-        distance : "",
+        high : "",
+        middle : "",
+        low : "",
+        good : "",
         isLogin: null
     }
     this.handleValueChange = this.handleValueChange.bind(this)   
@@ -35,12 +39,13 @@ stateRefresh=() => {
 }
 
 handleFormPredict=(e) =>{
+    this.downImg()
     e.preventDefault()
     console.log("checkpoint2")
-    this.addresult()
-    .then((response)=> {
-        console.log("!!!!!!!"+response.data);
-    })
+    // this.addresult()
+    // .then((response)=> {
+    //     console.log("!!!!!!!"+response.data);
+    // })
     this.addpredict()
     .then((response)=> {
         console.log("!!!!!!!"+response.data);
@@ -55,6 +60,32 @@ handleFormPredict=(e) =>{
     alert("전송완료!")
 }
 
+
+
+downImg(){
+    console.log("이거 했다.")
+    html2canvas($("#WebCam")[0]).then(function(canvas){
+        var myImage = canvas.toDataURL();
+        var link = document.createElement("a")
+        link.download = "image\저장할 파일명.png";
+        link.href = myImage;
+        document.body.appendChild(link);
+        link.click();
+    });
+    
+}
+
+
+// downloadURI= (uri, name1)=> {
+//     var link = document.createElement("a")
+//     link.download = name1;
+//     link.href = uri;
+//     document.body.appendChild(link);
+//     link.click();
+//   }
+
+
+
 handleValueChange=(e) => {
     console.log("checkpoint1")
    let nextState={};
@@ -66,8 +97,10 @@ handleValueChange=(e) => {
         const url ='/api/predict';
         const formData = new FormData();
         formData.append('userNum',this.props.userNum);
-        formData.append('distance',this.state.distance);
-        formData.append('depth',this.state.depth);
+        formData.append('high',this.state.high);
+        formData.append('middle',this.props.middle);
+        formData.append('low',this.state.low);
+        formData.append('good',this.state.good);
         const config = {
             headers:{
                 'content-type' : 'multipart/form-data'
@@ -76,25 +109,32 @@ handleValueChange=(e) => {
         return post(url,formData,config);
         }
 
-    addresult= () => {
-        const url ='/api/result';
-        const formData = new FormData();
-        formData.append('userNum',this.props.userNum);
-        formData.append('distance',this.state.distance);
-        formData.append('depth',this.state.depth);
-        const config = {
-            headers:{
-                'content-type' : 'multipart/form-data'
-            }
-        }
-        return post(url,formData,config);
-        
-    }
 
-    GetTeachValue = (data1,data2) => {
+        //////시작 ////////
+        addresult= () => {
+            const url ='/api/result';
+            const formData = new FormData();
+            formData.append('userNum',this.props.userNum);
+            const config = {
+                headers:{
+                    'content-type' : 'multipart/form-data'
+                }
+            }
+            return post(url,formData,config);
+            }
+
+        //////삭제///////
+
+
+
+       
+
+    GetTeachValue = (data1,data2,data3,data4) => {
         this.setState({
-            depth : data1,
-            distance : data2,
+            high : data1,
+            middle : data2,
+            low : data3,
+            good : data4,
         })}
 
     render() {
@@ -107,8 +147,10 @@ handleValueChange=(e) => {
                         <h3>{this.props.name}님이 로그인 하셨습니다~</h3>
                         <WelcomePage GetTeachValue= {this.GetTeachValue}/>
                         <form onSubmit={this.handleFormPredict}>
-                        <input type="text" id="FirstClass" name ="depth"value={this.state.depth} onChange={this.handleValueChange} placeholder="깊이"></input>
-                        <input type="text" id="SecondClass" name ="distance" value={this.state.distance} onChange={this.handleValueChange} placeholder="너비"></input>
+                       <input id="HighClass" type="text" name ="high"value={this.state.high} onChange={this.handleValueChange} placeholder="High"></input>
+                        <input type="text" id="MiddleClass" name ="middle" value={this.state.middle} onChange={this.handleValueChange} placeholder="Middle"></input>
+                        <input type="text" id="LowClass" name ="low" value={this.state.low} onChange={this.handleValueChange} placeholder="Low"></input>
+                        <input type="text" id="GoodClass" name ="good" value={this.state.good} onChange={this.handleValueChange} placeholder="Good"></input>
                         <input type="hidden" value={this.props.name} ></input>
                         <button type="submit">제출</button>
                         </form>
@@ -118,7 +160,7 @@ handleValueChange=(e) => {
         </div>) : 
         (<div>로그인 해주세요~</div>)
                 }
-                <Table name={this.props.name} userNum ={this.state.userNum}> name={this.props.name}</Table>
+                {/* <Table name={this.props.name} userNum ={this.state.userNum}> name={this.props.name}</Table> */}
             </div>
         ) 
     }

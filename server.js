@@ -29,7 +29,7 @@ const { query, request } = require('express');
 const upload = multer({dest:'./upload'})
 
 app.get('/api/result/:userNum',(req, res)=> {
-	let sql = "SELECT * FROM m_Tcheck WHERE userNum ="+req.body.userNum ;
+	let sql = "SELECT * FROM m_Tcheck WHERE userNum = 4566" ;
 	let userNum = req.body.userNum;
 	let params = [userNum]
 		connection.query(sql, params,
@@ -43,7 +43,7 @@ app.get('/api/result/:userNum',(req, res)=> {
 );
 
 app.get('/api/result',(req, res)=> {
-	let sql = "SELECT * FROM m_Tcheck WHERE userNum =4566";
+	let sql = "SELECT * FROM m_Tcheck WHERE userNum =4566 ";
 	let userNum = req.body.userNum;
 	let params = [userNum]
 		connection.query(sql, params,
@@ -57,13 +57,11 @@ app.get('/api/result',(req, res)=> {
 
 app.post('/api/result',(req, res)=> {
 	let sql = "SELECT * FROM m_Tcheck WHERE userNum = ? ";
-	let userNum = req.body.userNum;
-	let params = [userNum]
+	let params = req.body.userNum;
 		connection.query(sql, params,
 			(err,rows,fields)=> {
 				res.send(rows);
-				console.log("!!!!!!"+req.body.userNum)
-				console.log(err)
+				console.log(req.body.userNum+"헬로우 이범기 할라할라할라라라하라라")
 				// console.log(rows)
 			})});
 
@@ -111,16 +109,18 @@ app.get('/api/login',(req, res)=> {
 	{
 		
 		console.log(request.body)
-		let sql = "insert into m_Tcheck values (null,?,?,?,NOW())";
+		let sql = "insert into m_Tcheck values (null,?,?,?,?,?,https://placeimg.com/64/64/summer,NOW())";
 		// let image ='/image/' + req.file.filename;	
 		// let userNum =req.body.userNum;
 		// let userNum =1;
 		// let distance = 1;
 		// let depth = 1;
 		let userNum =req.body.userNum;
-		let distance = req.body.distance;
-		let depth = req.body.depth;
-		let params = [userNum , distance, depth];
+		let high = req.body.high;
+		let middle = req.body.middle;
+		let low = req.body.low;
+		let good = req.body.good;
+		let params = [userNum,high,middle,low,good];
 		connection.query(sql, params,
 			(err,rows,fields)=> {
 				res.send(rows);

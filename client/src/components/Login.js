@@ -8,6 +8,7 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 import Header from './Header';
 import Footer from './Footer';
 import Left from './Left'
+import { post } from 'axios';
 
 export default class Login extends Component {
     constructor(props){   // 초기 설정
@@ -21,14 +22,14 @@ export default class Login extends Component {
     }
  
 componentDidMount(){
-    try {
-        setTimeout(() => {
-            document.getElementById("btnLogin").click()     
-        }, 10000);
+    // try {
+    //     // setTimeout(() => {
+    //     //     // document.getElementById("btnLogin").click()     
+    //     // }, 10000);
            
-    } catch (error) {
+    // } catch (error) {
         
-    }
+    // }
     
     // setTimeout(() => {
     //     document.getElementById("btnLogin").click()     
@@ -81,6 +82,24 @@ componentDidMount(){
        
         });}
 
+
+        // addresult= () => {
+        //     const url ='/api/result';
+        //     const formData = new FormData();
+        //     formData.append('userNum',this.props.userNum);
+        //     const config = {
+        //         headers:{
+        //             'content-type' : 'multipart/form-data'
+        //         }
+        //     }
+        //     return post(url,formData,config);
+            
+        // }
+
+
+
+
+
     handleuserNum = e =>{
         this.setState(
             {
@@ -102,7 +121,6 @@ componentDidMount(){
             {/* HEADER */}
             <div className="Content">
             <div className="LoginPage"> 
-                <Dictaphone GetVoiceValue= {this.GetVoiceValue}/>
                 {
                     this.state.isLogin ===false ?  (  
                         <div className="form">
@@ -114,7 +132,7 @@ componentDidMount(){
                         </form>
                     </div>) : (<div><Predict name={this.state.name} userNum={this.state.userNum} isLogin={this.state.isLogin}></Predict></div>)
                 }
-              
+                <Dictaphone GetVoiceValue= {this.GetVoiceValue}/>
             </div>
                 <Footer/>
                 {/* Footer */}

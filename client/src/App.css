@@ -9,14 +9,28 @@
   
   
 }
-#FirstClass{
-color : #140ec7;
+#HighClass{
+color : #e91212;
 font-weight: 700;
+height: 10px;
 }
 
-#SecondClass{
-color : #d31010;
+#MiddleClass{
+color : #cf673d;
 font-weight: 700;
+height: 10px;
+}
+
+#LowClass{
+color : #2640d3;
+font-weight: 700;
+height: 10px;
+}
+
+#GoodClass{
+color : #34c96d;
+font-weight: 700;
+height: 10px;
 }
 
 .LoginPage {
