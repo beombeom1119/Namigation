@@ -28,17 +28,18 @@ const multer = require('multer');
 const { query, request } = require('express');
 const upload = multer({dest:'./upload'})
 
-app.get('/api/result/:userNum',(req, res)=> {
-	let sql = "SELECT * FROM m_Tcheck WHERE userNum = 4566" ;
-	let userNum = req.body.userNum;
-	let params = [userNum]
+app.post('/api/result/:userNum',(req, res)=> {
+	let sql = "SELECT * FROM m_Tcheck WHERE userNum = ? " ;
+	let params = req.params.userNum;
 		connection.query(sql, params,
 			(err,rows,fields)=> {
 				res.send(rows);
-				console.log("!!!!!!")
+				console.log("시작빼액!")
 				console.log(err)
-				// console.log(rows)
+				console.log(json.stringify(rows))
+				console.log("시작빼액!")
 			}) 
+			
 	}
 );
 
@@ -85,6 +86,7 @@ app.get('/api/login',(req, res)=> {
 				res.send(rows);
 				console.log(req.body)
 				console.log(err)
+				console.log("로그인1")
 			})});
 
 	app.post('/api/login',(req, res)=> {
@@ -96,6 +98,7 @@ app.get('/api/login',(req, res)=> {
 					(err,rows,fields)=> {
 						try {
 						res.send(rows);
+						console.log("로그인2")
 						} catch{
 						res.json(
 							{userNum:"!!!"}
@@ -109,7 +112,7 @@ app.get('/api/login',(req, res)=> {
 	{
 		
 		console.log(request.body)
-		let sql = "insert into m_Tcheck values (null,?,?,?,?,?,https://placeimg.com/64/64/summer,NOW())";
+		let sql = "insert into m_Tcheck values (null,?,?,?,?,?,'https://placeimg.com/64/64/summer',NOW())";
 		// let image ='/image/' + req.file.filename;	
 		// let userNum =req.body.userNum;
 		// let userNum =1;

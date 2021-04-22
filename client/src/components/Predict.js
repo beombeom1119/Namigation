@@ -97,10 +97,10 @@ handleValueChange=(e) => {
         const url ='/api/predict';
         const formData = new FormData();
         formData.append('userNum',this.props.userNum);
-        formData.append('high',this.state.high);
-        formData.append('middle',this.props.middle);
-        formData.append('low',this.state.low);
-        formData.append('good',this.state.good);
+        formData.append('high',this.state.high*100);
+        formData.append('middle',this.state.middle*100);
+        formData.append('low',this.state.low*100);
+        formData.append('good',this.state.good*100);
         const config = {
             headers:{
                 'content-type' : 'multipart/form-data'
@@ -112,7 +112,7 @@ handleValueChange=(e) => {
 
         //////시작 ////////
         addresult= () => {
-            const url ='/api/result';
+            const url ='/api/result/:userNum';
             const formData = new FormData();
             formData.append('userNum',this.props.userNum);
             const config = {
@@ -144,13 +144,14 @@ handleValueChange=(e) => {
                     this.props.isLogin===true ? (              
                     <div className="form">
                         <h1>{this.props.isLogin}</h1>
-                        <h3>{this.props.name}님이 로그인 하셨습니다~</h3>
+                        <h6>
+                            {this.props.name}님이 로그인 하셨습니다~</h6>
                         <WelcomePage GetTeachValue= {this.GetTeachValue}/>
                         <form onSubmit={this.handleFormPredict}>
-                       <input id="HighClass" type="text" name ="high"value={this.state.high} onChange={this.handleValueChange} placeholder="High"></input>
-                        <input type="text" id="MiddleClass" name ="middle" value={this.state.middle} onChange={this.handleValueChange} placeholder="Middle"></input>
-                        <input type="text" id="LowClass" name ="low" value={this.state.low} onChange={this.handleValueChange} placeholder="Low"></input>
-                        <input type="text" id="GoodClass" name ="good" value={this.state.good} onChange={this.handleValueChange} placeholder="Good"></input>
+                       <input id="HighClass" type="text" name ="high"value={"고위험 : "+this.state.high*100} onChange={this.handleValueChange} placeholder="High"></input>
+                        <input type="text" id="MiddleClass" name ="middle" value={"위험 : "+this.state.middle*100} onChange={this.handleValueChange} placeholder="Middle"></input>
+                        <input type="text" id="LowClass" name ="low" value={"경고 : "+this.state.low*100} onChange={this.handleValueChange} placeholder="Low"></input>
+                        <input type="text" id="GoodClass" name ="good" value={"좋음 : "+this.state.good*100} onChange={this.handleValueChange} placeholder="Good"></input>
                         <input type="hidden" value={this.props.name} ></input>
                         <button type="submit">제출</button>
                         </form>
