@@ -61,14 +61,10 @@ export default function WelcomePage() {
     
   }
 
-  const test =()=>{
-    console.log("test")
-  }
-  
   function downImg(){
     html2canvas($("#WebCam")[0]).then(function(canvas){
         var myImage = canvas.toDataURL();
-        downloadURI(myImage, "image\저장할 파일명.png") 
+        downloadURI(myImage, "촬영한 사진.png") 
     });
 }
 function downloadURI(uri, name){

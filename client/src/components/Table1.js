@@ -55,7 +55,7 @@ export default class Table1 extends Component {
         return (
           <>
           <Header></Header>
-          <Left></Left>
+          {/* <Left></Left> */}
             <div className="Content">
             <table class="table">
   <thead>

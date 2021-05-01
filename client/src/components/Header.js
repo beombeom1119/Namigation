@@ -3,8 +3,8 @@ import React from 'react'
 const Header = () => {
     return (
         <div className="Header">
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-  <a className="navbar-brand" href="#">Navbar</a>
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a className="navbar-brand" href="#"><img src="https://namigation.s3.ap-northeast-2.amazonaws.com/web/mark.jpg" width="35px"></img></a>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>

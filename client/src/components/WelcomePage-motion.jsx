@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import * as tmImage from '@teachablemachine/image'
-import html2canvas from 'html2canvas';
-import $ from 'jquery';
-
 
 export default function WelcomePage({GetTeachValue}) {
   const [openVal, setOpenVal] = useState(false);
@@ -37,7 +34,7 @@ export default function WelcomePage({GetTeachValue}) {
     maxPredictions = model.getTotalClasses();
 
     const flip = true; 
-    webcam = new tmImage.Webcam(200, 200, flip); 
+    webcam = new tmImage.Webcam(800, 800, flip); 
     await webcam.setup();
     await webcam.play();
     window.requestAnimationFrame(loop);
@@ -75,34 +72,6 @@ export default function WelcomePage({GetTeachValue}) {
     }
     
   }
-
-//   function downImg(){
-//     html2canvas($("#WebCam")[0]).then(function(canvas){
-//         var myImage = canvas.toDataURL();
-//         downloadURI(myImage, "image\저장할 파일명.png")
-//         // setstate(
-//         //   {
-//         //     iswebcam : false,
-//         //   }) 
-//     });
-// }
-// function downloadURI(uri, name){
-//   var link = document.createElement("a")
-//   link.download = name;
-//   link.href = uri;
-//   document.body.appendChild(link);
-//   link.click();
-// }
-
-
-  // if(state.iswebcam==true){
-  //  downImg()
-  // }
-  
-
-  
-
-
 
 
   return (

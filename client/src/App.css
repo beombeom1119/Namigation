@@ -1,48 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 
 
 #VoiceInput{
-  font-family: 'Nanum Gothic', sans-serif;
-  background: #FFFFFF;
+  font-family: 'Jua', sans-serif;
+  background: #343A40;
   width: 1px;
   height: 1px;
-  
-  
-}
-#HighClass{
-color : #e91212;
-font-weight: 700;
-height: 10px;
 }
 
-#MiddleClass{
-color : #cf673d;
-font-weight: 700;
-height: 10px;
+
+/*로그인 페이지*/
+
+#LoginInput {
+    border: 1.5px solid #2a2a2a;
+    text-align: center;
+    width: 400px;
+    height:45px;
+    /* margin-left: -51px; */
+    border-radius:20px 20px;
+    background: #2A2A2A;
+    color: #FFFFFF;
+    font-family: 'Jua', sans-serif;
 }
 
-#LowClass{
-color : #2640d3;
-font-weight: 700;
-height: 10px;
-}
 
-#GoodClass{
-color : #34c96d;
-font-weight: 700;
-height: 10px;
+#title{
+  font-size: 60px;
+  margin-bottom: 30px;
 }
-
 .LoginPage {
-  font-family: 'Nanum Gothic', sans-serif;
-  width: 360px;
+  font-family: 'Jua', sans-serif;
+  width: 600px;
   padding: 8% 0 0;
   margin: auto;
+  font-size: 60px;
+  color: #FFFFFF;
 }
-.form {
-  color: #000000;
-  font-size: large;
-  font-family: 'Nanum Gothic', sans-serif;
+.Login-form {
+  color: #FFFFFF;
+  font-size: 25px;
+  font-family: 'Jua', sans-serif;
   position: relative;
   z-index: 1;
   /* background: #7868e6; */
@@ -54,45 +51,72 @@ height: 10px;
   padding-right: 40px;
   /* box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24); */
 }
-.form input {
-  
-  font-family: 'Nanum Gothic', sans-serif;
-  outline: 0;
+.Login-form input {
+  font-family: 'Jua', sans-serif;
+  /* outline: 0; */
   background: #bce2d0;
   width: 100%;
   border: 0;
-  margin: 0 0 15px;
-  padding: 15px;
+  margin-left: -50px;
+  text-align: center;
+  /* padding: 15px; */
   box-sizing: border-box;
-  font-size: 14px;
+  font-size: 20px;
+  /* margin-bottom: 30px; */
 }
-.form button {
-  font-family: 'Nanum Gothic', sans-serif;
+
+/* .form button {
+  font-family: 'Jua', sans-serif;
   text-transform: uppercase;
   outline: 0;
-  background: #7ab488;
+  background: #2a2a2a;
+  color: #FFFFFF;
   width: 100%;
   border: 0;
   padding: 15px;
-  color: #ffffff;
+  color: #343A40;
   font-size: 14px;
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
+} */
+
+#btnLogin {
+    /* border-color: black; */
+    font-family: 'Jua', sans-serif;
+    text-transform: uppercase;
+    width:80%;
+    height:40px;
+    text-align: center;
+    /* color: #343A40; */
+    /* background-color: #343A40; */
+    margin-top: 40px;
+    font-size: 15px;
+    margin-left: 5px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    
 }
-.form button:hover,.form button:active,.form button:focus {
-  background: #FFFFFF;
+#WebCam {
+  text-align: center;
+  margin-left: -230px;
 }
-.form .message {
+
+
+.Login-form button:hover,.form button:active,.form button:focus {
+  background: #343A40;
+}
+.Login-form .message {
   margin: 15px 0 0;
-  color: #b3b3b3;
+  color: #343A40;
   font-size: 12px;
 }
-.form .message a {
-  color: #FFFFFF;
+.Login-form .message a {
+  color: #343A40;
   text-decoration: none;
 }
-.form .register-form {
+.Login-form .register-form {
   display: none;
 }
 .container {
@@ -129,46 +153,137 @@ height: 10px;
   color: #EF3B3A;
 }
 body {
-  background: #FFFFFF; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, #FFFFFF, #FFFFFF);
-  background: -moz-linear-gradient(right, #FFFFFF, #FFFFFF);
-  background: -o-linear-gradient(right, #FFFFFF, #FFFFFF);
-  background: linear-gradient(to left, #FFFFFF, #FFFFFF);
+  background: #343A40; /* fallback for old browsers */
+  background: -webkit-linear-gradient(right, #343A40, #343A40);
+  background: -moz-linear-gradient(right, #343A40, #FFFFFF);
+  background: -o-linear-gradient(right, #343A40, #343A40);
+  background: linear-gradient(to left, #343A40, #343A40);
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;      
 }
 
-
-
-.Content {
-  width: 940px;
-  margin-left: 300px;
-  padding: 20px;
-  border: 1px solid #bcbcbc;
-}
-.Header {
-  padding: 20px;
-  margin-bottom: 20px;
-  border: 1px solid #bcbcbc;
-}
-.Left {
-  width: 300px;
-  padding: 20px;
-  margin-bottom: 20px;
-  float: left;
-  border: 1px solid #bcbcbc;
-}
 #jb-sidebar {
   width: 260px;
   padding: 20px;
   margin-bottom: 20px;
   float: right;
-  border: 1px solid #bcbcbc;
-}
-.Footer {
-  clear: both;
-  padding: 20px;
-  border: 1px solid #bcbcbc;
+  border: 1px solid #343A40;
 }
 
+
+/*측정한 결과*/
+
+.Predict-form {
+  color: #000000;
+  font-size: large;
+  font-family: 'Jua', sans-serif;
+  position: relative;
+  z-index: 1;
+  /* background: #7868e6; */
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 5px;
+  text-align: center;
+  padding-left: 40px;
+  padding-right: 40px;
+  /* box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24); */
+}
+.Predict-form input {
+  border: 1.5px solid #2a2a2a;
+  border-radius:20px 20px;
+  font-family: 'Jua', sans-serif;
+  outline: 0;
+  background: #2a2a2a;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.Predict-form button {
+  font-family: 'Jua', sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #2a2a2a;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #ffffff;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.Predict-form button:hover,.form button:active,.form button:focus {
+  background: #FFFFFF;
+}
+.Predict-form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.Predict-form .message a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+.Predict-form .register-form {
+  display: none;
+}
+
+
+#HighClass{
+  color : #e91212;
+  font-weight: 700;
+  height: 10px;
+  }
+  
+  #MiddleClass{
+  color : #cf673d;
+  font-weight: 700;
+  height: 10px;
+  }
+  
+  #LowClass{
+  color : #2640d3;
+  font-weight: 700;
+  height: 10px;
+  }
+  
+  #GoodClass{
+  color : #34c96d;
+  font-weight: 700;
+  height: 10px;
+  }
+
+  
+
+/*레이아웃*/
+
+  .Content {
+    width: 940px;
+    margin-left: 150px;
+    padding: 20px;
+    border: 1px solid #343A40;
+  }
+  .Header {
+    color: #b3b3b3;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #343A40;
+    font-size: 20px;
+    
+  }
+  .Footer {
+    clear: both;
+    padding: 20px;
+    border: 1px solid #343A40;
+  }
+  /* .Left {
+    width: 300px;
+    padding: 20px;
+    margin-bottom: 20px;
+    float: left;
+    border: 1px solid #bcbcbc;
+  } */

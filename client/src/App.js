@@ -5,6 +5,9 @@ import Login from './components/Login';
 import 'bootstrap/dist/css/bootstrap.css'
 import { BrowserRouter, Route, Switch, Link  } from 'react-router-dom';
 import Table1 from './components/Table1';
+import Predict from './components/Predict';
+import Qrcode from './components/Qrcode';
+
 
 const styles = theme => ({
   root : {
@@ -89,7 +92,8 @@ class App extends Component{
       <BrowserRouter>
     <Switch>
     <Route exact path="/" component={Login}/>
-     <Route path="/table" component={Table1}/>
+     <Route path="/predict" component={Predict}/>
+     <Route path="/qrcode" component={Qrcode}/>
     </Switch>
   </BrowserRouter>
   <div>

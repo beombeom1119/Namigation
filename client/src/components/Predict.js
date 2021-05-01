@@ -67,7 +67,7 @@ downImg(){
     html2canvas($("#WebCam")[0]).then(function(canvas){
         var myImage = canvas.toDataURL();
         var link = document.createElement("a")
-        link.download = "image\저장할 파일명.png";
+        link.download = "촬영한 사진.png";
         link.href = myImage;
         document.body.appendChild(link);
         link.click();
@@ -142,10 +142,12 @@ handleValueChange=(e) => {
             <div className="PredictPage">
                 {
                     this.props.isLogin===true ? (              
-                    <div className="form">
+                    <div className="Predict-form">
                         <h1>{this.props.isLogin}</h1>
-                        <h6>
-                            {this.props.name}님이 로그인 하셨습니다~</h6>
+                        {/* <h6>{this.props.name}님이 로그인 하셨습니다~</h6> */}
+                        {/* <br></br> */}
+
+                            
                         <WelcomePage GetTeachValue= {this.GetTeachValue}/>
                         <form onSubmit={this.handleFormPredict}>
                        <input id="HighClass" type="text" name ="high"value={"고위험 : "+this.state.high*100} onChange={this.handleValueChange} placeholder="High"></input>
