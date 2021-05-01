@@ -4,9 +4,10 @@ import {withStyles} from '@material-ui/core/styles';
 import Login from './components/Login';
 import 'bootstrap/dist/css/bootstrap.css'
 import { BrowserRouter, Route, Switch, Link  } from 'react-router-dom';
-import Table1 from './components/Table1';
+// import Table1 from './components/Table1';
 import Predict from './components/Predict';
 import Qrcode from './components/Qrcode';
+import Qrcodecl from './components/Qrcodecl';
 
 
 const styles = theme => ({
@@ -93,6 +94,7 @@ class App extends Component{
     <Switch>
     <Route exact path="/" component={Login}/>
      <Route path="/predict" component={Predict}/>
+     <Route path="/qrcodecl" component={Qrcodecl}/>
      <Route path="/qrcode" component={Qrcode}/>
     </Switch>
   </BrowserRouter>

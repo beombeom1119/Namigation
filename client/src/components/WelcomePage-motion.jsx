@@ -34,7 +34,7 @@ export default function WelcomePage({GetTeachValue}) {
     maxPredictions = model.getTotalClasses();
 
     const flip = true; 
-    webcam = new tmImage.Webcam(800, 800, flip); 
+    webcam = new tmImage.Webcam(80, 80, flip); 
     await webcam.setup();
     await webcam.play();
     window.requestAnimationFrame(loop);

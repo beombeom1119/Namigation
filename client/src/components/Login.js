@@ -6,6 +6,8 @@ import Dictaphone from './Dictaphone';
 import Header from './Header';
 import Footer from './Footer';
 import QrReader from 'react-qr-scanner'
+import BarcodeScannerComponent from "react-qr-barcode-scanner";
+
 
 
 export default class Login extends Component {
@@ -16,33 +18,22 @@ export default class Login extends Component {
             name: "",
             isLogin: false,
             delay: 100,
-            result: 'No result',
+            data: 'No result',
         }
         this.GetVoiceValue = this.GetVoiceValue.bind(this);
-        this.handleScan = this.handleScan.bind(this)
+        // this.handleScan = this.handleScan.bind(this)
     }
 
     componentDidMount() {
 
     }
 
-    handleScan(data) {
-        this.setState({
-            result: 4566,
-        })
-    }
-    handleError(err) {
-        console.error(err)
-    }
 
-
-
-
-    GetVoiceValue(data1) {
-        console.log("가져온 값" + data1);
+    GetVoiceValue(data) {
+        console.log("가져온 값" + data);
         this.setState(
             {
-                userNum: data1,
+                userNum: data,
             });
     }
 
@@ -113,20 +104,33 @@ export default class Login extends Component {
                                     <form className="LoginForm" onSubmit={this.handleLogin}>
                                         <div id="title">Namigation</div>
                                         <br></br>
-                                        <QrReader
-                                         delay={this.state.delay}
-                                        style={previewStyle}
-                                        onError={this.handleError}
-                                        onScan={this.handleScan}
-                                        />
+                                        <BarcodeScannerComponent
+              width={200}
+              height={200}
+              onUpdate={(err, result) => {
+                if (result) {
+                    this.setState(
+                        {
+                            userNum: result.text,
+                        });
+                }
+                else{
+                this.setState(
+                    {
+                        userNum: "Not Found",
+                    });
+                }
+              }}
+            />
                                         <h6>(QR 코드를 보여주세요)</h6>
-                                        <p>{this.state.result}</p>
-                                        <div><input id="LoginInput" type="text" value={this.state.result} onChange={this.handleuserNum.bind(this)} placeholder="제공받은 유저키를 입력해주세요"></input><button class="btn btn-primary" id="btnLogin" type="submit">로그인</button></div>
+                                        {/* <p>{this.state.result}</p> */}
+                                        {/* <div><input id="LoginInput" type="text" value={this.state.userNum} onChange={this.handleuserNum.bind(this)} placeholder="제공받은 유저키를 입력해주세요"></input><button class="btn btn-primary" id="btnLogin" type="submit">로그인</button></div> */}
+                                         <div><input id="LoginInput" type="text" value={4566} onChange={this.handleuserNum.bind(this)} placeholder="제공받은 유저키를 입력해주세요"></input><button class="btn btn-primary" id="btnLogin" type="submit">로그인</button></div>
                                         {/* <button class="btn btn-primary" id="btnLogin2" onClick={this.haha()}>누르기</button> */}
                                     </form>
                                 </div>) : (<div><Predict name={this.state.name} userNum={this.state.userNum} isLogin={this.state.isLogin}></Predict></div>)
                         }
-                        <Dictaphone GetVoiceValue={this.GetVoiceValue} />
+                        {/* <Dictaphone GetVoiceValue={this.GetVoiceValue} /> */}
                     </div>
                     <Footer />
                     {/* Footer */}

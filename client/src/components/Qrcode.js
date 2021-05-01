@@ -1,44 +1,32 @@
-import React, { Component } from 'react'
-import QrReader from 'react-qr-scanner'
+import React from "react";
+import BarcodeScannerComponent from "react-qr-barcode-scanner";
 
-class Qrcode extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      delay: 100,
-      result: 'No result',
-    }
+function Qrcode({GetVoiceValue}) {
+  const [data, setData] = React.useState("Not");
+  
 
-    this.handleScan = this.handleScan.bind(this)
+  function SetVoiceValue(){
+    GetVoiceValue(data)
   }
-  handleScan(data){
-    this.setState({
-      result: 4566,
-    })
-  }
-  handleError(err){
-    console.error(err)
-  }
-  render(){
-    const previewStyle = {
-      height: 240,
-      width: 320,
-    }
 
-    return(
-      <div>
-        허허
-        <QrReader
-          delay={this.state.delay}
-          style={previewStyle}
-          onError={this.handleError}
-          onScan={this.handleScan}
-          />
-        <p>{this.state.result}</p>
-        허허
-      </div>
-    )
-  }
+
+  return (
+    <>
+      <BarcodeScannerComponent
+        width={200}
+        height={200}
+        onUpdate={(err, result) => {
+          if (result) {
+            setData(data);
+            SetVoiceValue()
+            console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+          }
+          else setData("Not Found");
+        }}
+      />
+      <p id="user">{data}</p>
+    </>
+  );
 }
 
 export default Qrcode;
