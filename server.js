@@ -44,7 +44,7 @@ app.post('/api/result/:userNum', (req, res) => {
 
 
 app.get('/hello', (req, res) => {
-	res.send("안녕하세요 서버가 정상적으로 작동하고 있습니다.");
+	res.send("안녕하세요 서버가 정상적으로 작동하고 있습니다~!");
 });
 
 app.get('/hello/api', (req, res) => {
