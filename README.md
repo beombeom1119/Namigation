@@ -8,6 +8,10 @@
 
 [내미게이션 GitHub](https://github.com/beombeom1119/Namigation/tree/WEB)
 
+[내미게이션 특허출원](https://drive.google.com/file/d/1n1aVSMk7RQjMJTHfyDP0DpYRH2m4Zobn/view?usp=sharinghttps://drive.google.com/file/d/1n1aVSMk7RQjMJTHfyDP0DpYRH2m4Zobn/view?usp=sharing)
+
+
+
 ##### • React를 이용한 웹 페이지 개발
 
 ##### • AWS를 이용한 서버이용, 프로젝트 배포
