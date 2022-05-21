@@ -3,7 +3,7 @@
 **[Github](https://github.com/beombeom1119/Namigation/tree/WEB)**
 
 [GitHub - beombeom1119/Namigation at WEB](https://github.com/beombeom1119/Namigation/tree/WEB)
-
+ 
 <aside>
 💡 성결대학교 졸업작품으로 진행한 프로젝트입니다. 크롤링을 이용하여, 다양한 사람들의 헤어 스타일 데이터를 모으고, Teachable Machine을 통해 라벨링, 이후 분류하는 작업을 하였습니다.
 이후 IOT 스마트 미러를 통해 탈모를 측정하고, React와 Android를 이용하여 서비스를 체험할 수 있는 프로젝트입니다.
