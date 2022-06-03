@@ -16,7 +16,7 @@
 
 [내미게이션 포트폴리오](https://drive.google.com/file/d/1K3RL_HeT-AJEmYZIaCQOy6JvhRrSk-r6/view)
 
-[내미게이션 설명 블로그] (https://baam-ki.tistory.com/20)
+[내미게이션 블로그](https://baam-ki.tistory.com/20)
 
 [내미게이션 특허출원 출원서](https://drive.google.com/file/d/1n1aVSMk7RQjMJTHfyDP0DpYRH2m4Zobn/view?usp=sharing)
 
